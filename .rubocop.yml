@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'client/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/WordArray:
+  Enabled: false
