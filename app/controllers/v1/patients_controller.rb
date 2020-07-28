@@ -7,8 +7,7 @@ module V1
       patient = Patient.create!(patient_params)
       json_response(
         object: patient,
-        status: :created,
-        options: { root: "patient" }
+        status: :created
       )
     end
 

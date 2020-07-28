@@ -7,8 +7,7 @@ module V1
       admin = Admin.create!(admin_params)
       json_response(
         object: admin,
-        status: :created,
-        options: { root: "admin" }
+        status: :created
       )
     end
 
