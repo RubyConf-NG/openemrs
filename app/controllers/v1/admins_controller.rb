@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
 module V1
-  # V1 patients controller
-  class PatientsController < ApplicationController
+  # V1 Admin Controller
+  class AdminsController < ApplicationController
     def create
-      patient = Patient.create!(patient_params)
+      admin = Admin.create!(admin_params)
       json_response(
-        object: patient,
+        object: admin,
         status: :created,
-        options: { root: "patient" }
+        options: { root: "admin" }
       )
     end
 
     private
 
-    def patient_params
+    def admin_params
       params.permit(
         :name, :email, :phone_number, :gender, :date_of_birth,
         :password, :password_confirmation, :uid

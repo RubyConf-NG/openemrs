@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :users, except: %i[new edit]
     resources :patients, except: %i[new edit]
     resources :doctors, except: %i[new edit]
+    resources :admins, except: %i[new edit]
   end
 end

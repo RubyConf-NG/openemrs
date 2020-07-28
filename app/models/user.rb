@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   self.primary_key = :uid
 
+  default_scope { order(created_at: :asc) }
+
   # validations
   validates_date :date_of_birth
   validates_presence_of :name, :email, :date_of_birth

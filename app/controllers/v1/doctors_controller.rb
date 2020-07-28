@@ -4,8 +4,7 @@ module V1
   # V1 doctors controller
   class DoctorsController < ApplicationController
     def create
-      doctor = User.create!(doctor_params)
-      doctor.add_role(:doctor) if doctor.roles.blank?
+      doctor = Doctor.create!(doctor_params)
       json_response(
         object: doctor,
         status: :created,
