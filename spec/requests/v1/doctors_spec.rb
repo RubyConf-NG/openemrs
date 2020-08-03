@@ -5,7 +5,7 @@
 require "rails_helper"
 
 RSpec.describe "V1::DoctorsController", type: :request do
-  let(:params) { attributes_for(:user) }
+  let(:params) { attributes_for(:doctor) }
 
   describe "#create" do
     context "when user passes in valid doctor params" do
@@ -27,7 +27,7 @@ RSpec.describe "V1::DoctorsController", type: :request do
       it "should increase the size of the users table by 1" do
         expect do
           post v1_doctors_path, params: params
-        end.to change(User, :count).by 1
+        end.to change(Doctor, :count).by 1
       end
     end
 

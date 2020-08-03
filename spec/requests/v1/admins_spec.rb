@@ -1,40 +1,40 @@
 # frozen_string_literal: true
 
-# patients request spec
+# admins request spec
 
 require "rails_helper"
 
-RSpec.describe "V1::PatientsController", type: :request do
-  let(:params) { attributes_for(:patient) }
+RSpec.describe "V1::AdminsController", type: :request do
+  let(:params) { attributes_for(:admin) }
 
   describe "#create" do
-    context "when user passes in valid patient params" do
-      let(:expected_patient) {
+    context "when user passes in valid admin params" do
+      let(:expected_admin) {
         {
           name: params[:name],
           email: params[:email],
           phone_number: params[:phone_number],
           date_of_birth: params[:date_of_birth],
           gender: params[:gender],
-          roles: ["Patient"]
+          roles: ["Admin"]
         }.as_json
       }
-      it "should create a patient with a default role" do
-        post v1_patients_path, params: params
-        expect(json["data"]["patient"]).to include(expected_patient)
+      it "should create an admin with a default role" do
+        post v1_admins_path, params: params
+        expect(json["data"]["admin"]).to include(expected_admin)
       end
 
       it "should increase the size of the users table by 1" do
         expect do
-          post v1_patients_path, params: params
-        end.to change(Patient, :count).by 1
+          post v1_admins_path, params: params
+        end.to change(Admin, :count).by 1
       end
     end
 
     context "when invalid params are passed" do
       before do
         params.delete :date_of_birth
-        post v1_patients_path, params: params
+        post v1_admins_path, params: params
       end
 
       it "returns 422 as the status code" do
@@ -49,7 +49,7 @@ RSpec.describe "V1::PatientsController", type: :request do
 
     context "when email already exists" do
       before do
-        2.times { post v1_patients_path, params: params }
+        2.times { post v1_admins_path, params: params }
       end
 
       it "returns 422 as the status code" do
