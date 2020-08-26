@@ -25,9 +25,6 @@ coverage/
 
 spec/examples.txt
 
-# ignore dotenv
-.env
-
 /public/packs
 /public/packs-test
 /node_modules

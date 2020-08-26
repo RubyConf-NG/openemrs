@@ -2,7 +2,7 @@
 
 module V1
   # V1 patients controller
-  class PatientsController < ApplicationController
+  class PatientsController < ApiController
     def create
       patient = Patient.create!(patient_params)
       json_response(
