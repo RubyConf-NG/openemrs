@@ -2,7 +2,7 @@
 
 module V1
   # V1 Admin Controller
-  class AdminsController < ApplicationController
+  class AdminsController < ApiController
     def create
       admin = Admin.create!(admin_params)
       json_response(
