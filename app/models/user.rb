@@ -8,6 +8,12 @@ class User < ApplicationRecord
   self.primary_key = :uid
 
   default_scope { order(created_at: :asc) }
+  
+  enum gender: {
+    male: "male",
+    female: "female",
+    unspecified: "unspecified",
+  }
 
   # validations
   validates_date :date_of_birth
