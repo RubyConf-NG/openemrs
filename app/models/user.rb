@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Clearance::User
+
   include GenerateUid
   VALID_EMAIL = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
