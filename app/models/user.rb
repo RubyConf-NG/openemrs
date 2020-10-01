@@ -5,7 +5,7 @@ class User < ApplicationRecord
   VALID_EMAIL = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   rolify
-  has_secure_password
+  # has_secure_password
 
   self.primary_key = :uid
 
