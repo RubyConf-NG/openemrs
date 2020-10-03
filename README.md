@@ -13,12 +13,11 @@
 * Clone this repository
 * `cd` into the repository on your local machine
 * Run `bundle install` to install dependencies
-* Run `rails credentials:edit`
-* Add a key  - `db_user` and a value representing your database username
-  + `db_user:your_pg_username`
-* Add a key - `db_password` and a value representing your database password
-  + `db_password:your_pg_password`
-* Save your new credentials
+* create a new database user on your local machine called `openemrs`
+* For UNIX based platforms, add the following entry to your `pg_hba.conf` file
+  + `local   all  openemrs  md5`
+  + You can find your `pg_hba.conf` at `/etc/postgresql/{version}/main/pg_hba.conf`
+* set password for this user to one shared on Slack
 * Run  `rails db:create` to create the database
 * Run `rails db:migrate` to create all the necessary tables. 
 * Alternatively, you can run `rails schema:load`
