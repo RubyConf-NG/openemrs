@@ -8,7 +8,6 @@ class SessionsController < Clearance::SessionsController
     @user = authenticate(params)
     
     sign_in(@user) do |status|
-      binding.pry
       if status.success?
         redirect_back_or url_after_create
       else
@@ -16,14 +15,5 @@ class SessionsController < Clearance::SessionsController
         render template: "sessions/new", status: :unauthorized
       end
     end
-  end
-  
-  private
-  
-  def doctor_params
-    params.require(:doctor).permit(
-      :email,
-      :password
-    )
   end
 end

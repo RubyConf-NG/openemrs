@@ -22,8 +22,9 @@ class User < ApplicationRecord
 
   #enum
   enum gender: {
-    male: 0,
-    female: 1,
+    male: 'male',
+    female: 'female',
+    unspecified: 'unspecified',
   }
 
   # scopes

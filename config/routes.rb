@@ -10,8 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :patients
-
   namespace "v1" do
     resources :users, except: %i[new edit]
     resources :patients, except: %i[new edit]

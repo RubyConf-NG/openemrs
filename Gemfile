@@ -64,6 +64,7 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec",  require: false
   gem "rspec-rails"
+  gem 'capybara'
 end
 
 group :development do
