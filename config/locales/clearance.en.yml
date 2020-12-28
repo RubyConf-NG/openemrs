@@ -56,9 +56,14 @@ en:
     form:
       forgot_password: Forgot password?
       sign_up: Sign up
+      doctors_sign_up: Doctors Registration
     new:
       title: Sign in
   users:
     new:
       sign_in: Sign in
       title: Sign up
+  doctors:
+    new:
+      form:
+        sign_up: Doctors Sign Up

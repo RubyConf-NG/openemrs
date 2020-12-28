@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#index'
   
-  resources :doctors do
+  resources :doctors, only: %i[create new] do
+    
     collection do
       get "/sign_in", to: "clearance/sessions#new"
       post "/sessions", to: "sessions#create"

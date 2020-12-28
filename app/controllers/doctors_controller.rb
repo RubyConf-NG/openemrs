@@ -1,7 +1,6 @@
 class DoctorsController < Clearance::UsersController
   def new
-    @user = Doctor.new
-    render "users/new"
+    @doctor = Doctor.new
   end
 
   def create

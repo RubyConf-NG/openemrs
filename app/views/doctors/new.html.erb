@@ -1,0 +1,17 @@
+<div id="clearance" class="w-full max-w-lg mx-auto">
+  <h2 class="text-center mb-4"><%= t(".title") %></h2>
+
+  <%= form_for @doctor, html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" } do |form| %>
+    <%= render partial: 'form', object: form %>
+
+    <div class="flex items-center justify-center">
+      <div class="submit-field">
+        <%= form.submit "Sign up", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-5 cursor-pointer" %>
+      </div>
+
+      <div class="other-links">
+        <%= link_to t(".sign_in"), sign_in_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    </div>
+  <% end %>
+</div>
