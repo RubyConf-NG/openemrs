@@ -43,6 +43,8 @@ gem "rolify"
 # faker
 gem "faker"
 
+# Clearance is built to support authentication and authorization via an email/password sign-in mechanism in applications. It provides some core classes commonly used for these features, along with some opinionated defaults - but is intended to be easy to override.
+gem "clearance"
 
 # serializer
 gem "active_model_serializers", "~> 0.10.0"
@@ -62,6 +64,7 @@ group :development, :test do
   gem "guard"
   gem "guard-rspec",  require: false
   gem "rspec-rails"
+  gem 'capybara'
 end
 
 group :development do

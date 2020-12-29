@@ -1,9 +1,10 @@
 class User < ApplicationRecord
+  include Clearance::User
+
   include GenerateUid
   VALID_EMAIL = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
 
   rolify
-  has_secure_password
 
   self.primary_key = :uid
 
@@ -18,6 +19,13 @@ class User < ApplicationRecord
 
   # callbacks
   before_create :set_uid
+
+  #enum
+  enum gender: {
+    male: 'male',
+    female: 'female',
+    unspecified: 'unspecified',
+  }
 
   # scopes
   scope :doctors, -> { includes(:roles).where(roles: { name: "doctor" }) }
