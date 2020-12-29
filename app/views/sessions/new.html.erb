@@ -1,6 +1,20 @@
-<div id="clearance" class="sign-in">
-  <h2><%= t(".title") %></h2>
+<div id="clearance" class="w-full max-w-lg mx-auto">
+  <h2 class="text-center mb-4"><%= t(".title") %></h2>
 
-  <%= render partial: '/sessions/form' %>
+  <%= form_for :session, url: session_path, html: { class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" } do |form| %>
+  <%= render partial: '/sessions/form', object: form %>
 
+  <div class="flex items-center justify-center">
+    <div class="submit-field">
+      <%= form.submit "Sign in", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-5 cursor-pointer" %>
+    </div>
+
+    <div class="other-links">
+      <% if Clearance.configuration.allow_sign_up? %>
+      <%= link_to t(".doctors_sign_up"), new_doctor_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% end %>
+      <%= link_to t(".forgot_password"), new_password_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    </div>
+  </div>
+  <% end %>
 </div>
