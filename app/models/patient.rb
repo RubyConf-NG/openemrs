@@ -3,6 +3,7 @@
 # Patient model
 class Patient < User
   default_scope { includes(:roles).where(roles: { name: "patient" }) }
+  has_one :biometric
 
   after_create :assign_default_role
 
