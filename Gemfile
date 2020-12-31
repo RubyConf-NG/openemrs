@@ -1,50 +1,31 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
+ruby '2.7.2'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-# Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
-# Use Puma as the app server
-gem 'puma', '~> 4.3'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
-
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# Core gems
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'jbuilder', '~> 2.7'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 5.1'
+gem 'rails', '~> 6.1.0'
+gem 'sassc', '~> 2.4.0'
+gem 'sass-rails', '>= 6'
+gem 'webpacker', '~> 5.2'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# Authentication gems
+gem 'bcrypt', '~> 3.1.7'
+gem 'rolify'
+gem 'clearance'
 
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+# Environment variables gems
+gem 'dotenv-rails', '~> 2.7'
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
-
-# authentication and authorization gems
-gem "rolify"
+# Image gems
+gem 'image_processing', '~> 1.2'
 
 # faker
 gem "faker"
-
-# Clearance is built to support authentication and authorization via an email/password sign-in mechanism in applications. It provides some core classes commonly used for these features, along with some opinionated defaults - but is intended to be easy to override.
-gem "clearance"
 
 # serializer
 gem "active_model_serializers", "~> 0.10.0"
@@ -57,27 +38,29 @@ gem "activerecord-postgres_enum"
 
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem "pry-rails"
   gem "database_cleaner"
   gem "guard"
   gem "guard-rspec",  require: false
+  gem "pry-rails"
   gem "rspec-rails"
-  gem 'capybara'
 end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rack-mini-profiler', '~> 2.0'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 4.1.0'
 end
 
 group :test do
+  gem 'capybara', '>= 3.26'
   gem "factory_bot_rails"
+  gem 'selenium-webdriver'
   gem "shoulda-matchers", "~> 4.0"
   gem "simplecov", require: false
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
