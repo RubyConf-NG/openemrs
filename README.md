@@ -27,14 +27,14 @@
 
       sudo nano .env
 
-* Set up the `.env` file with the following environment variables. Pleae replace the `DATABASE_USER` and `DATABASE_PASSWORD` environment values with your own values:
+* Set up the `.env` file with the following environment variables. The `RAILS_MASTER_KEY` environment variable contains a **placeholder value (incorrect value)** which is commented. Replace it with the correct value when needed. Also, please replace the `DATABASE_USER` and `DATABASE_PASSWORD` environment values with your own values:
 
       DATABASE_NAME=openemrs_development
       DATABASE_USER=your-database-user
       DATABASE_PASSWORD=your-database-password
       DATABASE_HOST=127.0.0.1
       DATABASE_PORT=5432
-      
+
       RAILS_ENV=development
       RACK_ENV=development
       # RAILS_MASTER_KEY=d809cb021ee58a9c50933fe775a74d00
