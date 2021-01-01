@@ -4,31 +4,66 @@
 
 ## Prerequisites
 
-* Rails - 6.0.2.2
-* Ruby - 2.5.3
-* Postgresql
+* Rails - 6.1.0
+* Ruby - 2.7.2
+* PostgreSQL versions 9.3 and above.
 
 
-## Installation Steps
-* Clone this repository
-* `cd` into the repository on your local machine
-* Run `bundle install` to install dependencies
-* create a new database user on your local machine called `openemrs`
-* For UNIX based platforms, add the following entry to your `pg_hba.conf` file
-  + `local   all  openemrs  md5`
-  + You can find your `pg_hba.conf` at `/etc/postgresql/{version}/main/pg_hba.conf`
-* set password for this user to one shared on Slack
-* Run  `rails db:create` to create the database
-* Run `rails db:migrate` to create all the necessary tables. 
-* Alternatively, you can run `rails schema:load`
-* Start the app by running `rails s`
+## Getting Started
+
+* Clone this application repository:
+
+      git clone https://github.com/RubyConf-NG/openemrs.git
+
+* Change into the repository directory on your local machine:
+
+      cd your-repository-directory
+
+* Install the application gem dependencies:
+
+      bundle install
+
+* Create a `.env` file for the application environment variables in the application root directory:
+
+      sudo nano .env
+
+* Set up the `.env` file with the following environment variables. Pleae replace the `DATABASE_USER` and `DATABASE_PASSWORD` environment values with your own values:
+
+      DATABASE_NAME=openemrs_development
+      DATABASE_USER=your-database-user
+      DATABASE_PASSWORD=your-database-password
+      DATABASE_HOST=127.0.0.1
+      DATABASE_PORT=5432
+      
+      RAILS_ENV=development
+      RACK_ENV=development
+      # RAILS_MASTER_KEY=d809cb021ee58a9c50933fe775a74d00
+      RAILS_PORT=3000
+
+* Create the database for your development environment:
+
+      rails db:create
+
+* Create all the necessary database tables:
+
+      rails db:migrate
+
+* Install the [foreman gem](https://rubygems.org/gems/foreman) on your local machine for assets-precompilation:
+
+      gem install foreman
+
+* Starting the rails server using `rails server` isn't ideal since we also want to run the assets-precompilation at the same time. We have a `Procfile` and `Procfile.dev` files set up for this. So you can start the **rails server** and the run **assets-precompilation** at the same time using the command below:
+
+      PORT=3001 foreman start -f Procfile.dev
 
 ## Tests
+
 * Run `rspec` or `bundle exec rspec` to run all specs
 * This generates coverage report that you can find under `/coverage`
 * To view coverage in your browser, open `/coverage/index.html` after running specs
 
 ## Using Guard
+
 > Guard has been setup to automatically re-run specs when it detects a file change.
 
 To use, run `guard` or `bundle exec guard` in your terminal
