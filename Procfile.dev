@@ -1,0 +1,5 @@
+# PORT=3002 foreman start -f Procfile.dev
+
+web: bin/rails s -p ${PORT:-3000}
+webpacker: ./bin/webpack-dev-server
+watcher: ./bin/webpack --watch --colors --progress
