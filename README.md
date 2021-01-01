@@ -54,7 +54,7 @@
 
 * Starting the rails server using `rails server` isn't ideal since we also want to run the assets-precompilation at the same time. We have a `Procfile` and `Procfile.dev` files set up for this. So you can start the **rails server** and the run **assets-precompilation** at the same time using the command below:
 
-      PORT=3001 foreman start -f Procfile.dev
+      PORT=3002 foreman start -f Procfile.dev
 
 ## Tests
 
