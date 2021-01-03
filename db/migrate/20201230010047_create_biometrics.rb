@@ -1,7 +1,7 @@
 class CreateBiometrics < ActiveRecord::Migration[6.0]
   def change
     create_table :biometrics do |t|
-      t.date :birthdate
+      t.date :date_of_birth
       t.integer :height
       t.integer :weight
       t.string :genotype

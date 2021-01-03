@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       post "/sessions", to: "sessions#create"
     end
   end
+  
+  resources :patients, only: %i[new create update edit]
 
   namespace "v1" do
     resources :users, except: %i[new edit]

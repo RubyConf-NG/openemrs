@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_30_010047) do
+ActiveRecord::Schema.define(version: 2020_12_30_134036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_12_30_010047) do
   ], force: :cascade
 
   create_table "biometrics", force: :cascade do |t|
-    t.date "birthdate"
+    t.date "date_of_birth"
     t.integer "height"
     t.integer "weight"
     t.string "genotype"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(version: 2020_12_30_010047) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "phone_number"
-    t.date "date_of_birth", null: false
     t.string "uid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
