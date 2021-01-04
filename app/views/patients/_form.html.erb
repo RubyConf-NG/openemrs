@@ -1,55 +1,61 @@
-<div class="mb-4">
-  <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
-  <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-</div>
+<div data-controller="biometrics">
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
 
 
-<div class="mb-4">
-  <%= form.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
-  <%= form.text_field :email, type: 'email', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-</div>
+  <div class="mb-4">
+    <%= form.label :email, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :email, type: 'email', class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
 
-<div class="mb-4">
-  <%= form.label :gender, class: "block text-gray-700 tracking-wide text-sm font-bold mb-2" %>
-  <%= form.select :gender, User.genders.keys.map { |k, v| [k.humanize, k] }, { prompt: "Select gender type" }, class: "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
-</div>
+  <div class="mb-4">
+    <%= form.label :gender, class: "block text-gray-700 tracking-wide text-sm font-bold mb-2" %>
+    <%= form.select :gender, User.genders.keys.map { |k, v| [k.humanize, k] }, { prompt: "Select gender type" }, class: "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" %>
+  </div>
 
-<div class="mb-4">
-  <%= form.label :phone_number, class: "block text-gray-700 text-sm font-bold mb-2" %>
-  <%= form.telephone_field :phone_number, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-</div>
+  <div class="mb-4">
+    <%= form.label :phone_number, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.telephone_field :phone_number, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
 
-<div class="mb-4">
-  <span>Show biometrics: <%= radio_button_tag 'biometric', false %></span>
-  <span>Hide biometrics: <%= radio_button_tag 'biometric', false %></span>
-</div>
+  <div class="mb-4">
+  <span>Show biometrics:
+    <span data-action="click->biometrics#showBiometrics"><%= radio_button_tag 'biometric', false %></span>
+  </span>
+    <span>Hide biometrics:
+    <span data-action="click->biometrics#hideBiometrics"><%= radio_button_tag 'biometric', false %></span>
+  </span>
+  </div>
 
-<div id="biometric-data" style="display: none;">
-<!--  <h4 style="text-align: center">Biometrics</h4>-->
-  <%= form.fields_for :biometric do |bio| %>
-    <div class="mb-4">
-      <%= bio.label :date_of_birth, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= bio.date_field :date_of_birth, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+  <div id="biometric-data" style="display: none;" data-biometrics-target="show">
+    <!--  <h4 style="text-align: center">Biometrics</h4>-->
+    <%= form.fields_for :biometric do |bio| %>
+      <div class="mb-4">
+        <%= bio.label :date_of_birth, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= bio.date_field :date_of_birth, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
 
-    <div class="mb-4">
-      <%= bio.label :height, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= bio.text_field :height, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+      <div class="mb-4">
+        <%= bio.label :height, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= bio.text_field :height, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
 
-    <div class="mb-4">
-      <%= bio.label :weight, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= bio.text_field :weight, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+      <div class="mb-4">
+        <%= bio.label :weight, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= bio.text_field :weight, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
 
-    <div class="mb-4">
-      <%= bio.label :genotype, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= bio.text_field :genotype, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
+      <div class="mb-4">
+        <%= bio.label :genotype, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= bio.text_field :genotype, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
 
-    <div class="mb-4">
-      <%= bio.label :blood_type, class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= bio.text_field :blood_type, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-    </div>
-  <% end %>
+      <div class="mb-4">
+        <%= bio.label :blood_type, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= bio.text_field :blood_type, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
 </div>
