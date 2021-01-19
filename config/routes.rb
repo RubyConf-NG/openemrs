@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/confirm_email/:token" => "email_confirmations#update", as: "confirm_email"
+
   namespace "v1" do
     resources :users, except: %i[new edit]
     resources :patients, except: %i[new edit]

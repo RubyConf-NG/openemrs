@@ -5,10 +5,11 @@ class DoctorsController < Clearance::UsersController
 
   def create
     @doctor = Doctor.new(doctor_params)
+    @doctor.email_confirmation_token = Clearance::Token.new
   
     if @doctor.save
-      sign_in @doctor
-      redirect_back_or url_after_create
+      UserMailer.registration_confirmation(@doctor).deliver_later
+      redirect_back_or url_after_create, notice: "A confirmation email has been sent to your inbox"
     else
       render template: "users/new"
     end
