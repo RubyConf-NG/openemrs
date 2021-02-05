@@ -13,9 +13,10 @@ gem 'sassc', '~> 2.4.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.2'
 
-# Authentication gems
+# Authentication and authorization gems
 gem 'bcrypt', '~> 3.1.7'
 gem 'rolify'
+gem 'cancancan'
 gem 'clearance'
 
 # Environment variables gems

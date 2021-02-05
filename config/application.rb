@@ -20,5 +20,8 @@ module Openemrs
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # prevent form_with from generating remote forms by default
+    config.action_view.form_with_generates_remote_forms = false
   end
 end

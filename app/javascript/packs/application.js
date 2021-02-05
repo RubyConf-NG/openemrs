@@ -4,3 +4,5 @@ require("channels")
 
 // Tailwind CSS
 import "stylesheets/application"
+
+import "controllers"
