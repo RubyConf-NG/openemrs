@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        biometric:
+          attributes:
+            data: "Invalid JSON"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_144959) do
+ActiveRecord::Schema.define(version: 2020_12_30_134036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 2020_10_02_144959) do
     "female",
     "unspecified",
   ], force: :cascade
+
+  create_table "biometrics", force: :cascade do |t|
+    t.date "date_of_birth"
+    t.integer "height"
+    t.integer "weight"
+    t.string "genotype"
+    t.string "blood_type"
+    t.string "patient_id"
+    t.jsonb "data", default: "{}"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["patient_id"], name: "index_biometrics_on_patient_id", unique: true
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
@@ -35,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_10_02_144959) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "phone_number"
-    t.date "date_of_birth", null: false
     t.string "uid", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

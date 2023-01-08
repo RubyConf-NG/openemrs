@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "type": "object",
+  "properties": {
+    "date_of_birth": {
+      "type": "string"
+    },
+    "height": {
+      "type": "number"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "blood_type": {
+      "type": "string"
+    },
+    "genotype": {
+      "type": "string"
+    },
+    "patient_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "weight",
+    "blood_type"
+  ]
+}
