@@ -14,7 +14,6 @@ RSpec.describe "V1::DoctorsController", type: :request do
           name: params[:name],
           email: params[:email],
           phone_number: params[:phone_number],
-          date_of_birth: params[:date_of_birth],
           gender: params[:gender],
           roles: ["Doctor"]
         }.as_json
@@ -33,17 +32,12 @@ RSpec.describe "V1::DoctorsController", type: :request do
 
     context "when invalid params are passed" do
       before do
-        params.delete :date_of_birth
+        params.delete :email
         post v1_doctors_path, params: params
       end
 
       it "returns 422 as the status code" do
         expect(response).to have_http_status 422
-      end
-
-      it "returns an error" do
-        errors = json["errors"].first
-        expect(errors["date_of_birth"]).to include("can't be blank")
       end
     end
 

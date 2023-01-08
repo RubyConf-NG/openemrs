@@ -7,7 +7,7 @@ class Patient < User
   accepts_nested_attributes_for :biometric
   
   # validations
-  validates_absence_of :password
+  validates_absence_of :password, message: "Patients don't have passwords"
 
   after_create :assign_default_role
 

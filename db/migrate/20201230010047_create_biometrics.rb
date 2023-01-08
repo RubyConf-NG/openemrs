@@ -7,6 +7,7 @@ class CreateBiometrics < ActiveRecord::Migration[6.0]
       t.string :genotype
       t.string :blood_type
       t.string :patient_id
+      t.jsonb :data, default: '{}'
 
       t.timestamps
     end

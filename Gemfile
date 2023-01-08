@@ -31,11 +31,17 @@ gem "faker"
 # serializer
 gem "active_model_serializers", "~> 0.10.0"
 
+# json validator
+gem 'activerecord_json_validator'
+
 # date validation
 gem "validates_timeliness", "~> 4.1"
 
 # gem to enable enums with pg
 gem "activerecord-postgres_enum"
+
+gem "graphql"
+gem "graphiql-rails"
 
 
 group :development, :test do
@@ -58,6 +64,7 @@ end
 group :test do
   gem 'capybara', '>= 3.26'
   gem "factory_bot_rails"
+  gem 'json_matchers'
   gem 'selenium-webdriver'
   gem "shoulda-matchers", "~> 4.0"
   gem "simplecov", require: false
@@ -66,3 +73,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'graphiql-rails', group: :development

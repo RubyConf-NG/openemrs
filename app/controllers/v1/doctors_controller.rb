@@ -15,7 +15,7 @@ module V1
 
     def doctor_params
       params.permit(
-        :name, :email, :phone_number, :gender, :date_of_birth,
+        :name, :email, :phone_number, :gender,
         :password, :uid
       )
     end
