@@ -33,6 +33,5 @@ yarn-debug.log*
 .yarn-integrity
 
 # Ignore environment variable files
-.env
-.env.test
-.env.production
+.env*
+!.env.sample
