@@ -7,7 +7,7 @@ module Mutations
       argument :gender, String, required: true
       argument :password, String, required: true
       
-      field :doctor, Types::Models::DoctorType
+      field :doctor, Types::Models::DoctorType, null: true
 
       def resolve(name:, email:, phone_number:, gender:, password:)
         params = {
