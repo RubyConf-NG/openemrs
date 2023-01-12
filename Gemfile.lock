@@ -173,10 +173,9 @@ GEM
       regexp_parser (~> 2.0)
       uri_template (~> 0.7)
     jsonapi-renderer (0.2.2)
-    listen (3.1.5)
+    listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-      ruby_dep (~> 1.2)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -212,7 +211,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     pg (1.4.5)
-    pry (0.14.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.9)
@@ -284,7 +283,6 @@ GEM
     rspec-support (3.12.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
-    ruby_dep (1.5.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -398,7 +396,7 @@ DEPENDENCIES
   webpacker (~> 5.2)
 
 RUBY VERSION
-   ruby 2.7.2p137
+   ruby 3.0.0p0
 
 BUNDLED WITH
-   2.1.4
+   2.4.3
