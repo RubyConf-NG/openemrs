@@ -14,7 +14,6 @@ RSpec.describe "V1::PatientsController", type: :request do
           name: params[:name],
           email: params[:email],
           phone_number: params[:phone_number],
-          date_of_birth: params[:date_of_birth],
           gender: params[:gender],
           roles: ["Patient"]
         }.as_json
@@ -33,7 +32,7 @@ RSpec.describe "V1::PatientsController", type: :request do
 
     context "when invalid params are passed" do
       before do
-        params.delete :date_of_birth
+        params.delete :name
         post v1_patients_path, params: params
       end
 
@@ -43,7 +42,7 @@ RSpec.describe "V1::PatientsController", type: :request do
 
       it "returns an error" do
         errors = json["errors"].first
-        expect(errors["date_of_birth"]).to include("can't be blank")
+        expect(errors["name"]).to include("can't be blank")
       end
     end
 
